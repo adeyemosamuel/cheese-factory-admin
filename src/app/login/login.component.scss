@@ -1,0 +1,82 @@
+.main {
+  background-image: url(../../assets/img/bridge.png);
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: color-burn;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  position: relative;
+}
+
+@media only screen and (max-width: 550px) {
+  .login-content {
+    margin: 30px;
+  }
+}
+@media (min-width: 551px) {
+  .login-content {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+}
+@media (min-width: 1100px) {
+  .login-content {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+}
+
+.spinner {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-content {
+  padding-top: 100px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  position: absolute;
+  top: 12%;
+  left: 0;
+  right: 0;
+}
+
+
+.input-content {
+  background-color: white;
+  padding: 10px;
+  margin-top: 10%;
+  p {
+    margin: 5px 0px;
+  }
+  button {
+    background-color: #01216c;
+    width: 80%;
+    color: white;
+    margin-top: 10px;
+  }
+}
+
+.fadeIn {
+  animation: fade 2s linear 1s;
+  animation-fill-mode: backwards;
+}
+
+.logo {
+  float: left;
+  padding-top: 40px;
+  padding-left: 20px;
+  width: 50px;
+  margin: 0 auto;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+mat-form-field{
+  width: 100%;
+}
