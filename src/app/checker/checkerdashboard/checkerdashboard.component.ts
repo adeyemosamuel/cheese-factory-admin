@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-checkerdashboard',
   templateUrl: './checkerdashboard.component.html',
-  styleUrls: ['./checkerdashboard.component.css']
+  styleUrls: ['./checkerdashboard.component.scss']
 })
 export class CheckerdashboardComponent implements OnInit {
 

@@ -44,3 +44,20 @@ mat-toolbar mat-icon{
     display: none;
   }
 } */
+
+/* a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: black;
+} */
+
+mat-list-item {
+  a:hover,
+  a:active {
+    color: black;
+  }
+}

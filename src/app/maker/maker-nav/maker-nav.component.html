@@ -5,15 +5,15 @@
       [opened]="!(isHandset$ | async)">
       <mat-toolbar class="fleet">
           <img height="30px" width="30px" src="../../../assets/img/download.png"/>
-          <span>FlashLend Admin</span>
+          <span>Inputter Role</span>
         </mat-toolbar>
         <mat-divider></mat-divider>
     <mat-nav-list>
-        <mat-list-item>
+        <mat-list-item (click)="dashboard()">
             <button mat-icon-button>
               <mat-icon>dashboard</mat-icon>
             </button>
-            <a routerLink="/inputter/dashboard" routerLinkActive="active-list-item">Dashboard</a>
+            <a>Dashboard</a>
           </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
