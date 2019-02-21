@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-// import { HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ import { AppComponent } from './app.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    // HttpModule,
+    HttpModule,
     AdminModule,
     HttpClientModule,
     CheckerModule,

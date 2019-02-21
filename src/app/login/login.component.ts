@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-      this.router.navigate(['admin/dashboard']);
+      this.router.navigate(['authorizer/dashboard']);
       // this.snackBar.open('Enter email address', 'OK', {
       //   duration: 3000
       // });
