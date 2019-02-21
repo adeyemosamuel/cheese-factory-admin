@@ -1,3 +1,4 @@
+import { AuthGuardService } from './auth-guard.service';
 import { AdminlayoutComponent } from './admin/adminlayout/adminlayout.component';
 import { MessageComponent } from './checker/message/message.component';
 import { CheckerdashboardComponent } from './checker/checkerdashboard/checkerdashboard.component';
@@ -31,7 +32,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
 ] },
 
-  { path: 'login', component: LoginComponent },
+  { path: 'login',
+   component: LoginComponent,
+  canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
