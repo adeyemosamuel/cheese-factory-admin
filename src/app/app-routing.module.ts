@@ -1,3 +1,4 @@
+import { AdminlayoutComponent } from './admin/adminlayout/adminlayout.component';
 import { MessageComponent } from './checker/message/message.component';
 import { CheckerdashboardComponent } from './checker/checkerdashboard/checkerdashboard.component';
 import { CheckerlayoutComponent } from './checker/checkerlayout/checkerlayout.component';
@@ -23,6 +24,11 @@ const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: CheckerdashboardComponent },
     { path: 'message', component: MessageComponent }
+] },
+
+{ path: 'admin', component: AdminlayoutComponent, children: [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
 ] },
 
   { path: 'login', component: LoginComponent },

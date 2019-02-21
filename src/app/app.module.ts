@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 import { MakerModule } from './maker/maker.module';
 import { CheckerModule } from './checker/checker.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    AdminModule,
     HttpClientModule,
     CheckerModule,
     MakerModule
