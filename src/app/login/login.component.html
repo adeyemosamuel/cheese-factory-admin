@@ -2,11 +2,11 @@
 
   <div *ngIf="!spinner">
 
-      <div class="logo">
+      <!-- <div class="logo">
           <img src="../../assets/img/download.png">
-        </div>
+        </div> -->
 
-        <div class="login-content fadeIn">
+        <!-- <div class="login-content fadeIn">
           <div class="input-content">
 
             <div>
@@ -15,14 +15,12 @@
                       <mat-form-field>
                         <mat-label>Email</mat-label>
                         <input matInput  type="text">
-                        <!-- <mat-icon matSuffix>mail_outline</mat-icon> -->
                       </mat-form-field>
                     </p>
                     <p>
                       <mat-form-field >
                         <mat-label>Password</mat-label>
                         <input matInput type="password">
-                        <!-- <mat-icon matSuffix>visibility</mat-icon> -->
                       </mat-form-field>
                     </p>
                     <div>
@@ -33,11 +31,41 @@
 
           </div>
 
+        </div> -->
+<div class="container">
+          <!-- <div class="logo2">Login</div> -->
+          <div class="logo2">
+            <img src="../../assets/img/download.png">
+          </div>
+          <div class="register-item">
+            <div class="form form-register">
+
+              <div class="form-field">
+                <label  for="register-email"><i class="far fa-envelope"></i>
+                  <span class="hidden">Staff ID</span></label>
+                <input name="email" type="email" class="form-input" placeholder="Staff ID" [(ngModel)]="Username">
+              </div>
+
+              <div class="form-field">
+                <label for="register-password"><i class="fas fa-unlock-alt"></i><span class="hidden">Password</span></label>
+                <input name="password" type="password" class="form-input" placeholder="Password" [(ngModel)]="Password">
+              </div>
+
+              <div class="form-field">
+                <button mat-raised-button class="full-width" (click)="login()">LOGIN</button>
+              </div>
+            </div>
+          </div>
+
         </div>
 
+</div>
+<div class="spinner" *ngIf="spinner">
+    <mat-spinner strokeWidth="3" diameter="50" style="margin: 0 auto;"></mat-spinner>
   </div>
 
-
 </div>
+
+<!-- #myform="ngForm" -->
 
 

@@ -6,7 +6,7 @@ import { Http, Headers } from '@angular/http';
 })
 export class ServerService {
   // tslint:disable-next-line:ban-types
-  url: String = 'https://wawoohapi.herokuapp.com/fashion';
+  url: String = 'http://196.13.161.88:6780/DTPAdmin/api';
 // tslint:disable-next-line: deprecation
   headers: Headers;
 
