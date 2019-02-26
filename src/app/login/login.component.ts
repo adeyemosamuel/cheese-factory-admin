@@ -18,11 +18,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // login() {
-  //     this.router.navigate(['authorizer/dashboard']);
-  // }
-
-
   async login() {
     if (!this.Username) {
       this.snackBar.open('Enter your username', 'OK', {
@@ -54,12 +49,13 @@ export class LoginComponent implements OnInit {
     try {
       const response = await this.server.postService('Login', body);
       console.log(response);
-      if (response.Code === '00') {
+      if (response.Code === '00' && response.Data.UserType === 'Administrator') {
+        localStorage.setItem('sessionId', response.Data.sessionId);
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000
         });
-        this.router.navigate(['admin/dashboard']);
-      } else if (response.Code === '99') {
+        this.router.navigate(['admin/admin-dashboard', this.Username]);
+      } else if (response.Code !== '00') {
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000
         });

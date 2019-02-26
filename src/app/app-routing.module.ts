@@ -1,3 +1,4 @@
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminlayoutComponent } from './admin/adminlayout/adminlayout.component';
 import { MessageComponent } from './checker/message/message.component';
@@ -28,8 +29,9 @@ const routes: Routes = [
 ] },
 
 { path: 'admin', component: AdminlayoutComponent, children: [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'admin-dashboard/:id', component: AdminDashboardComponent },
 ] },
 
   { path: 'login',

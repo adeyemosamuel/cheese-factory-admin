@@ -1,8 +1,9 @@
+import { ServerService } from './../../server.service';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-nav',
@@ -16,10 +17,12 @@ export class AdminNavComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private server: ServerService,
+              private activatedRoute: ActivatedRoute
+    ) {}
 
   dashboard() {
-    this.router.navigate(['admin/dashboard']);
+    this.router.navigate(['admin/admin-dashboard']);
   }
 
 }

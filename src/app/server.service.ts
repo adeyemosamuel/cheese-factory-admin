@@ -13,15 +13,14 @@ export class ServerService {
 // tslint:disable-next-line: deprecation
   constructor(private http: Http) { }
   async setHeaders() {
-    const token = localStorage.getItem('token');
-    console.log(token);
+    const sessionId = localStorage.getItem('sessionId');
 
-    if (token) {
+    if (sessionId) {
 // tslint:disable-next-line: deprecation
       this.headers = new Headers({
         'Content-Type': 'application/json',
         // tslint:disable-next-line:object-literal-key-quotes
-        'Authorization': `${token}`
+        'Authorization': `${sessionId}`
       });
     } else {
 // tslint:disable-next-line: deprecation
