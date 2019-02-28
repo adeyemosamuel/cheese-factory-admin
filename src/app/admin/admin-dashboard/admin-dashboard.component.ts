@@ -1,5 +1,5 @@
 import { ServerService } from './../../server.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -8,23 +8,23 @@ import { Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
+
   UserId: any;
   spinner = false;
+  UserDetails: any = [];
 
   constructor( private activatedRoute: ActivatedRoute, private router: Router, private server: ServerService) { }
 
  async ngOnInit() {
   this.activatedRoute.params.subscribe((Username) => {
-    this.UserId = Username;
-    console.log(this.UserId, 'My USER IDENTITY');
+    this.UserId = Username.id;
     this.fetchUserDetails(this.UserId);
   });
   }
 
   async fetchUserDetails(id) {
     this.toggleSpinner();
-    const response = await this.server.getService(`GetUser?userId=${id}`); // `template string
-    console.log(response);
+    const response = await this.server.getService(`GetUserProfile/${id}`); // `template string
     this.toggleSpinner();
    }
 

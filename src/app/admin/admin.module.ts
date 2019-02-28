@@ -8,9 +8,11 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
+import { TransactionmodalComponent } from './transactionmodal/transactionmodal.component';
+import { ApplicationsComponent } from './applications/applications.component';
 
 @NgModule({
-  declarations: [AdminNavComponent, AdminDashboardComponent, AdminlayoutComponent],
+  declarations: [AdminNavComponent, AdminDashboardComponent, AdminlayoutComponent, TransactionmodalComponent, ApplicationsComponent],
   imports: [
     CommonModule,
     LayoutModule,

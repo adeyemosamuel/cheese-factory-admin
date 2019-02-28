@@ -20,6 +20,35 @@
             </button>
             <a>Dashboard</a>
           </mat-list-item>
+
+
+          <mat-list-item (click)="expanding()">
+            <button mat-icon-button>
+              <mat-icon>apps</mat-icon>
+            </button>
+            <a>Applications</a>
+            <i *ngIf="!hide" class="fas fa-angle-down"></i>
+            <i *ngIf="hide"class="fas fa-angle-up"></i>
+          </mat-list-item>
+
+          <div class="shift" *ngIf="hide">
+            <mat-nav-list *ngFor="let s of SideMenu; let i = index">
+              <mat-list-item (click)="applications()">
+                <button mat-icon-button>
+                  <!-- <mat-icon>payment</mat-icon> -->
+                </button>
+                <a>{{s.ApplicationId}}</a>
+              </mat-list-item>
+            </mat-nav-list>
+          </div>
+
+          <mat-list-item>
+            <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+            <a>Settings</a>
+          </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -34,7 +63,7 @@
       </button>
       <span>Dashboard</span>
       <span class="spacer"></span>
-      <mat-icon>person</mat-icon>
+      <i (click)="logout()" class="fas fa-power-off"></i>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->

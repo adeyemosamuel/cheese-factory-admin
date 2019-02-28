@@ -1,3 +1,4 @@
+import { ApplicationsComponent } from './admin/applications/applications.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminlayoutComponent } from './admin/adminlayout/adminlayout.component';
@@ -31,7 +32,7 @@ const routes: Routes = [
 { path: 'admin', component: AdminlayoutComponent, children: [
   { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'admin-dashboard/:id', component: AdminDashboardComponent },
+  { path: 'applications', component: ApplicationsComponent },
 ] },
 
   { path: 'login',

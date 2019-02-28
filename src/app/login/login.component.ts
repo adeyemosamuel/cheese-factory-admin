@@ -44,19 +44,21 @@ export class LoginComponent implements OnInit {
       Password: this.Password,
     };
 
-    console.log(body);
-
     try {
       const response = await this.server.postService('Login', body);
-      console.log(response);
       if (response.Code === '00' && response.Data.UserType === 'Administrator') {
         localStorage.setItem('sessionId', response.Data.sessionId);
+        localStorage.setItem('User', this.Username);
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000
         });
-        this.router.navigate(['admin/admin-dashboard', this.Username]);
+        this.router.navigate(['admin/admin-dashboard']);
       } else if (response.Code !== '00') {
         this.snackBar.open(response.Message, 'OK', {
+          duration: 3000
+        });
+      } else {
+        this.snackBar.open('Something went wrong. Please try again', 'OK', {
           duration: 3000
         });
       }
