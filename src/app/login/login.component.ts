@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       const response = await this.server.postService('Login', body);
       if (response.Code === '00' && response.Data.UserType === 'Administrator') {
         localStorage.setItem('sessionId', response.Data.sessionId);
-        localStorage.setItem('User', this.Username);
+        localStorage.setItem('User', response.Data.Id);
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000
         });

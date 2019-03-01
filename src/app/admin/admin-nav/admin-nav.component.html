@@ -31,16 +31,16 @@
             <i *ngIf="hide"class="fas fa-angle-up"></i>
           </mat-list-item>
 
-          <div class="shift" *ngIf="hide">
+          <!-- <div class="shift" *ngIf="hide">
             <mat-nav-list *ngFor="let s of SideMenu; let i = index">
               <mat-list-item (click)="applications()">
                 <button mat-icon-button>
-                  <!-- <mat-icon>payment</mat-icon> -->
+
                 </button>
                 <a>{{s.ApplicationId}}</a>
               </mat-list-item>
             </mat-nav-list>
-          </div>
+          </div> -->
 
           <mat-list-item>
             <button mat-icon-button>
@@ -77,3 +77,5 @@
 
 
 <!-- [ngClass]="{hidden: (isHandset | async)!.matches}" -->
+
+ <!-- <mat-icon>payment</mat-icon> -->

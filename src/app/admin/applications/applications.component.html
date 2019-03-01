@@ -1,3 +1,79 @@
-<p>
-  applications works!
-</p>
+<div>
+  <div *ngIf="!spinner">
+    <!-- <div class="dashboard">
+      <div class="header">
+        <mat-icon>laptop_mac</mat-icon>
+        <span>Product Management</span>
+      </div>
+      <hr />
+    </div> -->
+<div class="add">
+  <button mat-raised-button >Add Products</button>
+</div>
+
+    <div class="tabili">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="productInformation.productName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.productInformation.productName}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="productInformation.productBrand">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+          <td mat-cell *matCellDef="let element"> {{element.productInformation.productBrand}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productInformation.productColor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Color</th>
+          <td mat-cell *matCellDef="let element"> {{element.productInformation.productColor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productPricing.productQuantity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+          <td mat-cell *matCellDef="let element"> {{element.productPricing.productQuantity}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productPricing.productPrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price <span>&#8358;</span> </th>
+          <td mat-cell *matCellDef="let element"> {{element.productPricing.productPrice}} </td>
+        </ng-container>
+
+         <ng-container matColumnDef="productImage">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Images </th>
+          <td mat-cell *matCellDef="let element"> <img height="50px" width="50px" [src]="element.productImage" /> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>edit</mat-icon>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+    </div>
+
+  </div>
+
+  <div class="spinner" *ngIf="spinner">
+    <mat-spinner
+      strokeWidth="3"
+      diameter="50"
+      style="margin: 0 auto;"
+    ></mat-spinner>
+  </div>
+</div>
+

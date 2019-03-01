@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AdminNavComponent implements OnInit {
   hide = false;
-  UserId: any;
+  UserId: number;
   SideMenu = [];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -26,13 +26,15 @@ export class AdminNavComponent implements OnInit {
     ) {}
 
     async ngOnInit() {
-      this.UserId = localStorage.getItem('User');
+      this.UserId = JSON.parse(localStorage.getItem('User'));
+      console.log('My ID', this.UserId);
       await this.fetchUserDetails(this.UserId);
       }
 
       async fetchUserDetails(id) {
-        const response = await this.server.getService(`GetUserProfile/${id}`); // `template string
-        this.SideMenu = response.Data;
+        const response = await this.server.getService(`GetUserAppFunctions/${id}`); // `template string
+        console.log('My Response', response);
+        // this.SideMenu = response.Data;
        }
 
   dashboard() {
