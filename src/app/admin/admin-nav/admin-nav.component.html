@@ -53,7 +53,7 @@
                   <!-- use expansion panel for heading item with sub page links -->
                   <mat-expansion-panel *ngIf="s.Functions.length > 0"
                     class="mat-elevation-z0">
-                    <mat-expansion-panel-header class="nav-head" [expandedHeight]="'48px'">
+                    <mat-expansion-panel-header class="nav-head" [expandedHeight]="'24px'">
                       <mat-panel-title class="nav-link">
                         <mat-icon>{{s.ApplicationIcon}}</mat-icon>
                         <span class="nav-link-text">{{s.ApplicationName}}</span>
@@ -62,13 +62,15 @@
 
                     <div class="nav-section">
                       <!-- loop through all your sub pages inside the expansion panel content -->
-                      <div *ngFor="let p of s.Functions"
+                      <mat-nav-list *ngFor="let p of s.Functions"
                         class="nav-item">
+                        <mat-list-item>
                         <a class="nav-link"
                           [routerLink]="p.FunctionUrl"
                           routerLinkActive="selected"
                           >{{p.FunctionName}}</a>
-                      </div>
+                        </mat-list-item>
+                      </mat-nav-list>
                     </div>
                   </mat-expansion-panel>
                 </div>
