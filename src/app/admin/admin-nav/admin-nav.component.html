@@ -31,16 +31,50 @@
             <i *ngIf="hide"class="fas fa-angle-up"></i>
           </mat-list-item>
 
-          <!-- <div class="shift" *ngIf="hide">
-            <mat-nav-list *ngFor="let s of SideMenu; let i = index">
-              <mat-list-item (click)="applications()">
-                <button mat-icon-button>
+          <div class="shift" *ngIf="hide">
+            <mat-nav-list>
+              <!-- wrap all the nav items in an accordion panel -->
+              <mat-accordion [displayMode]="displayMode">
+                <div *ngFor="let s of SideMenu">
 
-                </button>
-                <a>{{s.ApplicationId}}</a>
-              </mat-list-item>
+                  <!-- use a simple div for an item that has no children,
+                    match up the styling to the expansion panel styles -->
+
+                  <!-- <div class="nav-head" *ngIf="s.Functions.length === 0">
+                    <a class="nav-link"
+                      [routerLink]="s.FunctionUrl"
+                      routerLinkActive="selected"
+                      >
+                      <mat-icon>{{s.ApplicationIcon}}</mat-icon>
+                      <span class="nav-link-text">{{s.ApplicationName}}</span>
+                    </a>
+                  </div> -->
+
+                  <!-- use expansion panel for heading item with sub page links -->
+                  <mat-expansion-panel *ngIf="s.Functions.length > 0"
+                    class="mat-elevation-z0">
+                    <mat-expansion-panel-header class="nav-head" [expandedHeight]="'48px'">
+                      <mat-panel-title class="nav-link">
+                        <mat-icon>{{s.ApplicationIcon}}</mat-icon>
+                        <span class="nav-link-text">{{s.ApplicationName}}</span>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div class="nav-section">
+                      <!-- loop through all your sub pages inside the expansion panel content -->
+                      <div *ngFor="let p of s.Functions"
+                        class="nav-item">
+                        <a class="nav-link"
+                          [routerLink]="p.FunctionUrl"
+                          routerLinkActive="selected"
+                          >{{p.FunctionName}}</a>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+              </mat-accordion>
             </mat-nav-list>
-          </div> -->
+          </div>
 
           <mat-list-item>
             <button mat-icon-button>
@@ -79,3 +113,12 @@
 <!-- [ngClass]="{hidden: (isHandset | async)!.matches}" -->
 
  <!-- <mat-icon>payment</mat-icon> -->
+
+ <!-- <mat-nav-list *ngFor="let s of SideMenu; let i = index">
+  <mat-list-item (click)="applications()">
+    <button mat-icon-button>
+
+    </button>
+    <a>{{s.ApplicationId}}</a>
+  </mat-list-item>
+</mat-nav-list> -->

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-nav.component.scss']
 })
 export class AdminNavComponent implements OnInit {
+  displayMode = 'flat';
   hide = false;
   UserId: number;
   SideMenu = [];
@@ -34,7 +35,8 @@ export class AdminNavComponent implements OnInit {
       async fetchUserDetails(id) {
         const response = await this.server.getService(`GetUserAppFunctions/${id}`); // `template string
         console.log('My Response', response);
-        // this.SideMenu = response.Data;
+        this.SideMenu = response.Data;
+        console.log('Side Menu Data', this.SideMenu);
        }
 
   dashboard() {
