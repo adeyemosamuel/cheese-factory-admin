@@ -1,48 +1,37 @@
 <div>
   <div *ngIf="!spinner">
-    <!-- <div class="dashboard">
-      <div class="header">
-        <mat-icon>laptop_mac</mat-icon>
-        <span>Product Management</span>
-      </div>
-      <hr />
-    </div> -->
+
 <div class="add">
-  <button mat-raised-button >Add Products</button>
+  <button mat-raised-button (click)="addUsers()">Add Users</button>
 </div>
 
     <div class="tabili">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
-        <ng-container matColumnDef="productInformation.productName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.productInformation.productName}}</td>
+        <ng-container matColumnDef="Username">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+          <td mat-cell *matCellDef="let element"> {{element.Username}}</td>
         </ng-container>
 
-        <ng-container matColumnDef="productInformation.productBrand">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
-          <td mat-cell *matCellDef="let element"> {{element.productInformation.productBrand}} </td>
+        <ng-container matColumnDef="RoleName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+          <td mat-cell *matCellDef="let element"> {{element.RoleName}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="productInformation.productColor">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Color</th>
-          <td mat-cell *matCellDef="let element"> {{element.productInformation.productColor}} </td>
+        <ng-container matColumnDef="IsActive">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+          <td mat-cell *matCellDef="let element"> {{element.IsActive}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="productPricing.productQuantity">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
-          <td mat-cell *matCellDef="let element"> {{element.productPricing.productQuantity}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="productPricing.productPrice">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Price <span>&#8358;</span> </th>
-          <td mat-cell *matCellDef="let element"> {{element.productPricing.productPrice}} </td>
-        </ng-container>
-
-         <ng-container matColumnDef="productImage">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Images </th>
-          <td mat-cell *matCellDef="let element"> <img height="50px" width="50px" [src]="element.productImage" /> </td>
-        </ng-container>
+        <ng-container matColumnDef="visibility">
+            <th mat-header-cell *matHeaderCellDef>View</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon>visibility</mat-icon>
+            </td>
+          </ng-container>
 
         <ng-container matColumnDef="edit">
           <th mat-header-cell *matHeaderCellDef> Edit </th>
@@ -53,7 +42,7 @@
 
 
         <ng-container matColumnDef="delete">
-          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <th mat-header-cell *matHeaderCellDef> Deactivate </th>
           <td mat-cell *matCellDef="let element">
             <mat-icon>delete</mat-icon>
           </td>
@@ -63,7 +52,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
-
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 
   </div>

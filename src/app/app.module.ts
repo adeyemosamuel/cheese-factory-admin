@@ -1,3 +1,4 @@
+import { ComponentModule } from './component/component.module';
 import { AuthGuardService } from './auth-guard.service';
 import { ServerService } from './server.service';
 import { AdminModule } from './admin/admin.module';
@@ -14,9 +15,10 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +31,10 @@ import { AppComponent } from './app.component';
     AdminModule,
     HttpClientModule,
     CheckerModule,
-    MakerModule
+    MakerModule,
+    ComponentModule
   ],
+  // exports: [ UsermodalComponent ],
   providers: [
     ServerService,
     AuthGuardService

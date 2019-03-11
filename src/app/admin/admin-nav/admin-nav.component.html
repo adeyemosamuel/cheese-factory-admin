@@ -13,79 +13,22 @@
       <span>Adminstrative Role</span>
     </mat-toolbar>
     <mat-divider></mat-divider>
-    <mat-nav-list>
-        <mat-list-item (click)="dashboard()">
+
+    <div>
+
+     <mat-nav-list *ngFor="let s of SideMenu; let i = index">
+
+        <mat-list-item (click)="goTo(s)">
+
             <button mat-icon-button>
-              <mat-icon>dashboard</mat-icon>
-            </button>
-            <a>Dashboard</a>
-          </mat-list-item>
-
-
-          <mat-list-item (click)="expanding()">
-            <button mat-icon-button>
-              <mat-icon>apps</mat-icon>
-            </button>
-            <a>Applications</a>
-            <i *ngIf="!hide" class="fas fa-angle-down"></i>
-            <i *ngIf="hide"class="fas fa-angle-up"></i>
-          </mat-list-item>
-
-          <div class="shift" *ngIf="hide">
-            <mat-nav-list>
-              <!-- wrap all the nav items in an accordion panel -->
-              <mat-accordion [displayMode]="displayMode">
-                <div *ngFor="let s of SideMenu">
-
-                  <!-- use a simple div for an item that has no children,
-                    match up the styling to the expansion panel styles -->
-
-                  <!-- <div class="nav-head" *ngIf="s.Functions.length === 0">
-                    <a class="nav-link"
-                      [routerLink]="s.FunctionUrl"
-                      routerLinkActive="selected"
-                      >
-                      <mat-icon>{{s.ApplicationIcon}}</mat-icon>
-                      <span class="nav-link-text">{{s.ApplicationName}}</span>
-                    </a>
-                  </div> -->
-
-                  <!-- use expansion panel for heading item with sub page links -->
-                  <mat-expansion-panel *ngIf="s.Functions.length > 0"
-                    class="mat-elevation-z0">
-                    <mat-expansion-panel-header class="nav-head" [expandedHeight]="'24px'">
-                      <mat-panel-title class="nav-link">
-                        <mat-icon>{{s.ApplicationIcon}}</mat-icon>
-                        <span class="nav-link-text">{{s.ApplicationName}}</span>
-                      </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <div class="nav-section">
-                      <!-- loop through all your sub pages inside the expansion panel content -->
-                      <mat-nav-list *ngFor="let p of s.Functions"
-                        class="nav-item">
-                        <mat-list-item>
-                        <a class="nav-link"
-                          [routerLink]="p.FunctionUrl"
-                          routerLinkActive="selected"
-                          >{{p.FunctionName}}</a>
-                        </mat-list-item>
-                      </mat-nav-list>
-                    </div>
-                  </mat-expansion-panel>
-                </div>
-              </mat-accordion>
-            </mat-nav-list>
-          </div>
-
-          <mat-list-item>
-            <button mat-icon-button>
-              <mat-icon>settings</mat-icon>
-            </button>
-            <a>Settings</a>
+                <mat-icon>{{s.Icon}}</mat-icon>
+              </button>
+              <a>{{s.Name}}</a>
           </mat-list-item>
 
     </mat-nav-list>
+    </div>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

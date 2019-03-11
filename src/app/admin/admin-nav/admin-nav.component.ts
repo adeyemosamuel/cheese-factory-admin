@@ -5,6 +5,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ReturnStatement } from '@angular/compiler';
 
 @Component({
   selector: 'app-admin-nav',
@@ -15,7 +16,7 @@ export class AdminNavComponent implements OnInit {
   displayMode = 'flat';
   hide = false;
   UserId: number;
-  SideMenu = [];
+  SideMenu: any[];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -28,28 +29,41 @@ export class AdminNavComponent implements OnInit {
 
     async ngOnInit() {
       this.UserId = JSON.parse(localStorage.getItem('User'));
-      console.log('My ID', this.UserId);
       await this.fetchUserDetails(this.UserId);
       }
 
       async fetchUserDetails(id) {
-        const response = await this.server.getService(`GetUserAppFunctions/${id}`); // `template string
-        console.log('My Response', response);
+        const response = await this.server.getService(`user/adminmenu?roleId=${id}`); // `template string
         this.SideMenu = response.Data;
-        console.log('Side Menu Data', this.SideMenu);
        }
 
-  dashboard() {
-    this.router.navigate(['admin/admin-dashboard']);
+  goTo(item) {
+   if (item.Id === 1) {
+     this.router.navigate(['admin/dashboard']);
+     return;
+   }
+
+   if (item.Id === 2) {
+    this.router.navigate(['admin/users']);
+    return;
+  }
+
+   if (item.Id === 3) {
+    this.router.navigate(['admin/applications']);
+    return;
+  }
+
+   if (item.Id === 4) {
+    this.router.navigate(['admin/functions']);
+    return;
+  }
+
   }
 
   expanding() {
     this.hide = !this.hide;
   }
 
-  applications() {
-  this.router.navigate(['admin/applications']);
-  }
 
   logout() {
     if (confirm('Are you sure you want to logout?')) {

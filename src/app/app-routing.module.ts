@@ -1,3 +1,4 @@
+import { FunctionsComponent } from './admin/functions/functions.component';
 import { ApplicationsComponent } from './admin/applications/applications.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AuthGuardService } from './auth-guard.service';
@@ -13,6 +14,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material/material/material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TransactionmodalComponent } from './admin/transactionmodal/transactionmodal.component';
 
 
 const routes: Routes = [
@@ -30,10 +32,15 @@ const routes: Routes = [
 ] },
 
 { path: 'admin', component: AdminlayoutComponent, children: [
-  { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'applications', component: ApplicationsComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: AdminDashboardComponent },
+  { path: 'users', component: ApplicationsComponent },
+  { path: 'applications', component: TransactionmodalComponent },
+  { path: 'functions', component: FunctionsComponent },
 ] },
+
+
+
 
   { path: 'login',
    component: LoginComponent,

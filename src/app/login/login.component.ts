@@ -45,14 +45,14 @@ export class LoginComponent implements OnInit {
     };
 
     try {
-      const response = await this.server.postService('Login', body);
-      if (response.Code === '00' && response.Data.UserType === 'Administrator') {
-        localStorage.setItem('sessionId', response.Data.sessionId);
-        localStorage.setItem('User', response.Data.Id);
+      const response = await this.server.postService('account/login', body);
+      if (response.Code === '00' && response.Role === 'SUPER-ADMIN') {
+        localStorage.setItem('Token', response.Token);
+        localStorage.setItem('User', response.RoleId);
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000
         });
-        this.router.navigate(['admin/admin-dashboard']);
+        this.router.navigate(['admin/dashboard']);
       } else if (response.Code !== '00') {
         this.snackBar.open(response.Message, 'OK', {
           duration: 3000

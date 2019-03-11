@@ -1,0 +1,51 @@
+<!-- <div>
+  <div *ngIf="!spinner"> -->
+<h2 mat-dialog-title>Add Users</h2>
+
+<mat-dialog-content class="mat-typography">
+    <p>
+        <mat-form-field >
+          <mat-label>Username*</mat-label>
+          <input
+            matInput
+            placeholder="Username"
+            type="text" [(ngModel)]="Username"
+          />
+        </mat-form-field>
+      </p>
+
+      <p>
+          <mat-form-field >
+            <mat-label>Password*</mat-label>
+            <input
+              matInput
+              placeholder="Password"
+              type="password"
+              [(ngModel)]="Password"
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field >
+              <mat-label>Role*</mat-label>
+              <mat-select placeholder="Select a role" [(ngModel)]="Rolename">
+                <mat-option [value]="r" *ngFor="let r of roles">{{r}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-raised-button (click)="cancel()">Cancel</button>
+<button mat-raised-button (click)="submit()">Submit</button>
+</mat-dialog-actions>
+<!-- </div>
+
+<div class="spinner" *ngIf="spinner">
+    <mat-spinner strokeWidth="3" diameter="50" style="margin: 0 auto;"></mat-spinner>
+  </div>
+
+</div> -->

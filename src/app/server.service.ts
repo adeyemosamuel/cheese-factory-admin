@@ -6,21 +6,22 @@ import { Http, Headers } from '@angular/http';
 })
 export class ServerService {
   // tslint:disable-next-line:ban-types
-  url: String = 'http://196.13.161.88:6780/DTPAdmin/api';
+  url: String = 'http://192.168.0.112:3333/api';
+
 // tslint:disable-next-line: deprecation
   headers: Headers;
 
 // tslint:disable-next-line: deprecation
   constructor(private http: Http) { }
   async setHeaders() {
-    const sessionId = localStorage.getItem('sessionId');
+    const Token = localStorage.getItem('Token');
 
-    if (sessionId) {
+    if (Token) {
 // tslint:disable-next-line: deprecation
       this.headers = new Headers({
         'Content-Type': 'application/json',
         // tslint:disable-next-line:object-literal-key-quotes
-        'Authorization': `${sessionId}`
+        'Authorization': `${Token}`,
       });
     } else {
 // tslint:disable-next-line: deprecation

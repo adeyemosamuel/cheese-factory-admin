@@ -23,7 +23,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatTableModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -52,7 +53,8 @@ import {
     MatNativeDateModule,
     MatMenuModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule
   ],
   exports: [
       MatButtonModule,
@@ -77,7 +79,8 @@ import {
       MatNativeDateModule,
       MatMenuModule,
       MatTableModule,
-      MatExpansionModule
+      MatExpansionModule,
+      MatPaginatorModule
   ]
 })
 export class MaterialModule { }

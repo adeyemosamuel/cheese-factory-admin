@@ -10,9 +10,12 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
 import { TransactionmodalComponent } from './transactionmodal/transactionmodal.component';
 import { ApplicationsComponent } from './applications/applications.component';
+import { FunctionsComponent } from './functions/functions.component';
+
 
 @NgModule({
-  declarations: [AdminNavComponent, AdminDashboardComponent, AdminlayoutComponent, TransactionmodalComponent, ApplicationsComponent],
+  declarations: [AdminNavComponent, AdminDashboardComponent, AdminlayoutComponent,
+     TransactionmodalComponent, ApplicationsComponent, FunctionsComponent],
   imports: [
     CommonModule,
     LayoutModule,
