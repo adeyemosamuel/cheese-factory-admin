@@ -1,3 +1,4 @@
+import { PhonemodalComponent } from './../../component/phonemodal/phonemodal.component';
 import { ServerService } from './../../server.service';
 import { MatDialog } from '@angular/material';
 import { Component, OnInit} from '@angular/core';
@@ -71,6 +72,14 @@ export class AdminNavComponent implements OnInit {
       this.router.navigate(['login']);
     } else {
     }
+  }
+
+  fetchLoanHistory(): void  {
+    localStorage.removeItem('Phone Number');
+    const dialogRef = this.dialog.open(PhonemodalComponent, {
+      minWidth: '20vw',
+      height: '30%',
+  });
   }
 
 }

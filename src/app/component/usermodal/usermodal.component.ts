@@ -26,9 +26,7 @@ export class UsermodalComponent implements OnInit {
 
   async getRoles() {
     const response = await this.server.getService('user/GetRoles');
-    console.log('Roles Response', response);
     this.roles = response;
-    console.log('Roles', this.roles);
   }
 
 
@@ -68,18 +66,14 @@ async submit() {
     Password: this.Password,
     RoleName: this.Rolename
   };
-  console.log(body);
   try {
     const response = await this.server.postService('user/CreateUser', body);
-    console.log(response);
     if (response.Code === '00') {
-      console.log(response.Message);
       this.snackBar.open(response.Message, 'OK', {
         duration: 3000
       });
       this.dialogRef.close();
     } else if (response.Code === '01') {
-      console.log(response.Message);
       this.snackBar.open(response.Message, 'OK', {
         duration: 3000
       });

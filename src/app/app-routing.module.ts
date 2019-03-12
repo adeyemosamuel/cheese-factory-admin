@@ -1,3 +1,4 @@
+import { LoanhistoryComponent } from './admin/loanhistory/loanhistory.component';
 import { FunctionsComponent } from './admin/functions/functions.component';
 import { ApplicationsComponent } from './admin/applications/applications.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
@@ -37,6 +38,8 @@ const routes: Routes = [
   { path: 'users', component: ApplicationsComponent },
   { path: 'applications', component: TransactionmodalComponent },
   { path: 'functions', component: FunctionsComponent },
+  { path: 'loanhistory', component: LoanhistoryComponent },
+  { path: 'loanhistory/:phoneNumber', component: LoanhistoryComponent }
 ] },
 
 

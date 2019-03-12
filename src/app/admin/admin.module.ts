@@ -11,11 +11,12 @@ import { AdminlayoutComponent } from './adminlayout/adminlayout.component';
 import { TransactionmodalComponent } from './transactionmodal/transactionmodal.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { FunctionsComponent } from './functions/functions.component';
+import { LoanhistoryComponent } from './loanhistory/loanhistory.component';
 
 
 @NgModule({
   declarations: [AdminNavComponent, AdminDashboardComponent, AdminlayoutComponent,
-     TransactionmodalComponent, ApplicationsComponent, FunctionsComponent],
+     TransactionmodalComponent, ApplicationsComponent, FunctionsComponent, LoanhistoryComponent],
   imports: [
     CommonModule,
     LayoutModule,

@@ -3,10 +3,11 @@ import { UsermodalComponent } from '../component/usermodal/usermodal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PhonemodalComponent } from './phonemodal/phonemodal.component';
 
 
 @NgModule({
-  declarations: [UsermodalComponent],
+  declarations: [UsermodalComponent, PhonemodalComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   entryComponents: [
-    UsermodalComponent
+    UsermodalComponent,
+    PhonemodalComponent
   ]
 })
 export class ComponentModule { }
