@@ -43,12 +43,10 @@ toggleSpinner(): void {
 }
 
 async getAllUsers() {
-  this.toggleSpinner();
   const response = await this.server.getService('user/GetAll');
   this.Products = response.Data;
   this.dataSource = new MatTableDataSource(this.Products);
   this.dataSource.paginator = this.paginator;
-  this.toggleSpinner();
 }
 
 addUsers(): void  {

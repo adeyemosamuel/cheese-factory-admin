@@ -1,3 +1,4 @@
+import { DetailsmodalComponent } from './../../component/detailsmodal/detailsmodal.component';
 import { PhonemodalComponent } from './../../component/phonemodal/phonemodal.component';
 import { ServerService } from './../../server.service';
 import { MatDialog } from '@angular/material';
@@ -79,6 +80,14 @@ export class AdminNavComponent implements OnInit {
     const dialogRef = this.dialog.open(PhonemodalComponent, {
       minWidth: '20vw',
       height: '30%',
+  });
+  }
+
+  getUserDetails(): void  {
+    localStorage.removeItem('Number');
+    const dialogRef = this.dialog.open(DetailsmodalComponent, {
+    minWidth: '20vw',
+    height: '30%',
   });
   }
 

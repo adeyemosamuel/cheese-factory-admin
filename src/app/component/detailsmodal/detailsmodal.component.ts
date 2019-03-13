@@ -5,21 +5,20 @@ import { MatSnackBar } from '@angular/material';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-phonemodal',
-  templateUrl: './phonemodal.component.html',
-  styleUrls: ['./phonemodal.component.scss']
+  selector: 'app-detailsmodal',
+  templateUrl: './detailsmodal.component.html',
+  styleUrls: ['./detailsmodal.component.scss']
 })
-export class PhonemodalComponent implements OnInit {
+export class DetailsmodalComponent implements OnInit {
   phoneNumber: any;
   spinner = false;
 
-  constructor(public dialogRef: MatDialogRef<PhonemodalComponent>,
+  constructor(public dialogRef: MatDialogRef<DetailsmodalComponent>,
               @Inject(MAT_DIALOG_DATA) public data, private server: ServerService,
               private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit() {
   }
-
   toggleSpinner(): void {
     this.spinner = !this.spinner;
   }
@@ -32,18 +31,20 @@ export class PhonemodalComponent implements OnInit {
       });
       return;
     }
-       const response = await this.server.getService(`flashlend/CustomerLoanHistory?phoneNumber=${phoneNumber}`); // `template string
+
+       console.log('My Phone', this.phoneNumber);
+       const response = await this.server.getService(`flashlend/GetCustomer?phoneNumber=${phoneNumber}`); // `template string
        if (response.code === '00') {
-         localStorage.setItem('Phone Number', this.phoneNumber);
+         localStorage.setItem('Number', this.phoneNumber);
          this.dialogRef.close();
-         this.router.navigate(['admin/loanhistory']);
+         this.router.navigate(['admin/userdetails']);
        } else if (response.code !== '00') {
-         localStorage.removeItem('Phone Number');
+         localStorage.removeItem('Number');
          this.snackBar.open(response.message, 'OK', {
           duration: 3000
         });
        } else {
-        localStorage.removeItem('Phone Number');
+        localStorage.removeItem('Number');
         this.snackBar.open('Something went wrong. Please try again', 'OK', {
           duration: 3000
         });
@@ -55,5 +56,4 @@ export class PhonemodalComponent implements OnInit {
   cancel() {
     this.dialogRef.close();
   }
-
 }
