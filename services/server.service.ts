@@ -1,57 +1,51 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { StorageService } from '../services/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
-  // tslint:disable-next-line:ban-types
-  url: String = 'http://192.168.0.112:3333/api';
+  private url: string = environment.api_server;
+  httpOptions: any;
 
-// tslint:disable-next-line: deprecation
-  headers: Headers;
 
-// tslint:disable-next-line: deprecation
-  constructor(private http: Http) { }
-  async setHeaders() {
-    const Token = localStorage.getItem('Token');
+  constructor(private http: HttpClient) { }
 
-    if (Token) {
-// tslint:disable-next-line: deprecation
-      this.headers = new Headers({
-        'Content-Type': 'application/json',
-        // tslint:disable-next-line:object-literal-key-quotes
-        'Authorization': `${Token}`,
-      });
-    } else {
-// tslint:disable-next-line: deprecation
-      this.headers = new Headers({
+  setHeader(): HttpHeaders {
+    const token = StorageService.getToken();
+
+    if (token) {
+      return new HttpHeaders({
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
       });
     }
+
+    return new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
   }
 
-  async getService(funcName): Promise<any> {
-    await this.setHeaders();
-
+  async postService(body: any, endpoint: string): Promise<any> {
+    const url = environment.api_server + endpoint;
     try {
-      const response = await this.http.get(`${this.url}/${funcName}`, { headers: this.headers }).toPromise();
-      return response.json();
-    } catch (err) {
-      return err.json();
+      const response = await this.http.post(url, JSON.stringify(body), {headers: this.setHeader()}).toPromise();
+      return response;
+    } catch (e) {
+      return e as HttpErrorResponse;
     }
   }
 
-  async postService(funcName, body): Promise<any> {
-    await this.setHeaders();
-
+  async getService(endpoint: string): Promise<any> {
+    const url = environment.api_server + endpoint;
     try {
-      // const response = await this.http.post(`${this.url}/${funcName}`, JSON.stringify(body), { headers: this.headers }).toPromise();
-      const response = await this.http.post(`${this.url}/${funcName}`, body, { headers: this.headers }).toPromise();
-      return response.json();
-    } catch (err) {
-      return err.json();
+      return await this.http.get(url, {headers: this.setHeader()}).toPromise();
+    } catch (e) {
+      return e as HttpErrorResponse;
     }
   }
-
 }
+
+
