@@ -9,29 +9,78 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
     <mat-toolbar class="fleet">
-      <img height="30px" width="30px" src="../../../assets/img/download.png"/>
-      <span>Adminstrative Role</span>
+      <img height="30px" width="30px" src="../../../assets/img/cheese.png"/>
+      <span style="font-size: 17px">Cheese Factory Admin</span>
     </mat-toolbar>
     <mat-divider></mat-divider>
 
     <div>
 
-     <mat-nav-list *ngFor="let s of SideMenu; let i = index">
+     <mat-nav-list>
 
-        <mat-list-item (click)="goTo(s)">
+        <mat-list-item>
 
             <button mat-icon-button>
-                <mat-icon>{{s.Icon}}</mat-icon>
+                <mat-icon>dashboard</mat-icon>
               </button>
-              <a>{{s.Name}}</a>
+              <a>Dashboard</a>
           </mat-list-item>
+
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>person</mat-icon>
+            </button>
+            <a>Users</a>
+        </mat-list-item>
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>shop</mat-icon>
+            </button>
+            <a>Products</a>
+        </mat-list-item>
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>shopping_cart</mat-icon>
+            </button>
+            <a>Orders</a>
+        </mat-list-item>
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>payment</mat-icon>
+            </button>
+            <a>Payment</a>
+        </mat-list-item>
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+            <a>Settings</a>
+        </mat-list-item>
+
+        <mat-list-item>
+
+          <button mat-icon-button>
+              <mat-icon>power_settings_new</mat-icon>
+            </button>
+            <a>Logout</a>
+        </mat-list-item>
 
     </mat-nav-list>
     </div>
 
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="test">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -50,11 +99,11 @@
       <span class="spacer"></span>
       <span class="spacer"></span>
       <span class="spacer"></span>
-      <button mat-raised-button (click)="getUserDetails()">Get User Details</button>
       <span class="spacer"></span>
-      <button mat-raised-button (click)="fetchLoanHistory()">Fetch Loan Hostory</button>
       <span class="spacer"></span>
-      <i (click)="logout()" class="fas fa-power-off"></i>
+     <button mat-icon-button>
+      <mat-icon>notifications</mat-icon>
+    </button>
     </mat-toolbar>
     <ng-content></ng-content>
     <!-- Add Content Here -->
@@ -62,20 +111,3 @@
 
 </mat-sidenav-container>
 
-
-
-
-
-
-<!-- [ngClass]="{hidden: (isHandset | async)!.matches}" -->
-
- <!-- <mat-icon>payment</mat-icon> -->
-
- <!-- <mat-nav-list *ngFor="let s of SideMenu; let i = index">
-  <mat-list-item (click)="applications()">
-    <button mat-icon-button>
-
-    </button>
-    <a>{{s.ApplicationId}}</a>
-  </mat-list-item>
-</mat-nav-list> -->

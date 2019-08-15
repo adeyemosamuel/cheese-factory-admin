@@ -25,6 +25,11 @@
   flex: 1 1 auto;
 }
 
+.test{
+  background-color: var(--main-color-primary);
+  color: #fff;
+}
+
 mat-toolbar mat-icon{
   text-decoration: none;
   display: flex;
@@ -34,7 +39,7 @@ mat-toolbar mat-icon{
 .fleet{
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
 }
 
 mat-list-item i{

@@ -1,4 +1,4 @@
-import { ServerService } from './../server.service';
+import { ServerService } from '../../../services/server.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
@@ -19,51 +19,26 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    if (!this.Username) {
-      this.snackBar.open('Enter your username', 'OK', {
-        duration: 3000
-      });
-      return;
-    }
+    // if (!this.Username) {
+    //   this.snackBar.open('Enter your username', 'OK', {
+    //     duration: 3000
+    //   });
+    //   return;
+    // }
 
-    if (!this.Password) {
-      this.snackBar.open('Enter your password', 'OK', {
-        duration: 3000
-      });
-      return;
-    }
+    // if (!this.Password) {
+    //   this.snackBar.open('Enter your password', 'OK', {
+    //     duration: 3000
+    //   });
+    //   return;
+    // }
     this.toggleSpinner();
     await this.authenticate();
     this.toggleSpinner();
   }
 
   async authenticate() {
-
-    const body = {
-      Username: this.Username,
-      Password: this.Password,
-    };
-
-    try {
-      const response = await this.server.postService('account/login', body);
-      if (response.Code === '00' && response.Role === 'SUPER-ADMIN') {
-        localStorage.setItem('Token', response.Token);
-        localStorage.setItem('User', response.RoleId);
-        this.snackBar.open(response.Message, 'OK', {
-          duration: 3000
-        });
-        this.router.navigate(['admin/dashboard']);
-      } else if (response.Code !== '00') {
-        this.snackBar.open(response.Message, 'OK', {
-          duration: 3000
-        });
-      } else {
-        this.snackBar.open('Something went wrong. Please try again', 'OK', {
-          duration: 3000
-        });
-      }
-    } catch (error) {}
-
+    this.router.navigate(['admin/dashboard']);
   }
 
   toggleSpinner(): void {

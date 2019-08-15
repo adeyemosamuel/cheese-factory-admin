@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@fortawesome/fontawesome-free/css/all.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+:root{
+  --main-color-primary: #415175;
+  --main-color-dark: black;
+  --main-color-warning:
+  #e35903;
+  --main-color-darkGrey: #212121;
+  --main-font-primary: 'Josefin Sans', sans-serif;
+  --main-font-secondary: 'Lato', sans-serif;
+}
 
 html,
 body{
@@ -21,3 +32,5 @@ body{
 .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #FFFFFF!important;
 }
+
+

@@ -1,14 +1,11 @@
-import { ComponentModule } from './component/component.module';
-import { AuthGuardService } from './auth-guard.service';
-import { ServerService } from './server.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
+import { ServerService } from '../../services/server.service';
 import { AdminModule } from './admin/admin.module';
-import { MakerModule } from './maker/maker.module';
-import { CheckerModule } from './checker/checker.module';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../../material/material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -30,9 +27,6 @@ import { AppComponent } from './app.component';
     HttpModule,
     AdminModule,
     HttpClientModule,
-    CheckerModule,
-    MakerModule,
-    ComponentModule
   ],
   // exports: [ UsermodalComponent ],
   providers: [
